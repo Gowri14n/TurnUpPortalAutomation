@@ -19,3 +19,27 @@ else
 {
     Console.WriteLine("user has not been logged in");
 }
+IWebElement admistrationdropdown = webDriver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+admistrationdropdown.Click();
+IWebElement tmoption = webDriver.FindElement(By.XPath("/ html / body / div[3] / div / div / ul / li[5] / ul / li[3]"));
+tmoption.Click();
+IWebElement createNewButton = webDriver.FindElement(By.XPath("/html/body/div[4]/p/a "));
+createNewButton.Click();
+IWebElement typecodemaindropdown = webDriver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[1]"));
+typecodemaindropdown.Click();
+IWebElement timeTypecode = webDriver.FindElement(By.XPath("//ul[@id='TypeCode_listbox']/li[2]"));
+timeTypecode.Click();
+IWebElement codeTextBox = webDriver.FindElement(By.Id("Code"));
+codeTextBox.SendKeys("ICApril2024");
+IWebElement descriptionTextbox = webDriver.FindElement(By.Id("Description"));
+descriptionTextbox.SendKeys("ICApril2024Description");
+IWebElement priceTextbox = webDriver.FindElement(By.XPath("//*[@id = \"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+priceTextbox.SendKeys("250.00");
+
+// Click on Select File 
+IWebElement selectFilesButton = webDriver.FindElement(By.XPath("/html/body/div[4]/form/div/div[6]/div/div/div/div/input"));
+selectFilesButton.SendKeys("C:\\Users\\Bhargav\\Pictures\\Sample.txt");
+
+// Click on save button
+IWebElement saveButton = webDriver.FindElement(By.Id("SaveButton"));
+saveButton.Click();
