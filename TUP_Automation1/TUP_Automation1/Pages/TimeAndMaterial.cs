@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TUP_Automation1.utilities;
 
@@ -54,6 +55,11 @@ namespace TUP_Automation1.Pages
         }
         public void EditTMRecord(IWebDriver webDriver) 
         {
+            Thread.Sleep(5000);
+
+            // verify create new record go to last page
+            IWebElement goToLastPageButton = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            goToLastPageButton.Click();
             IWebElement editButton = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             editButton.Click();
             IWebElement saveButtonedit = webDriver.FindElement(By.Id("SaveButton"));
@@ -68,13 +74,14 @@ namespace TUP_Automation1.Pages
         {
             IWebElement newCode = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             if (newCode.Text == "April2024")
-            {
-                Console.WriteLine("New time record has been created successfully");
-            }
-            else
-            {
-                Console.WriteLine("New time record has not been created");
-            }
+             {
+                 Console.WriteLine("New time record has been created successfully");
+             }
+             else
+             {
+                 Console.WriteLine("New time record has not been created");
+             }
+            //Assert.That(newCode.Text == "April2024", "New time record has been created successfully");
             Thread.Sleep(2000);
         }
     }
